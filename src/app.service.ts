@@ -1,11 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import Binance, { OrderType } from 'binance-api-node';
-import config from './common/configs/config';
-import { BinanceConfig } from './common/configs/config.interface';
-import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'nestjs-prisma';
-import { PasswordService } from './auth/password.service';
 import { ConfigService } from '@nestjs/config';
+import {BinanceConfig} from "./common/configs/config.interface";
 
 @Injectable()
 export class AppService {
@@ -22,16 +18,11 @@ export class AppService {
       apiSecret: binanceConfig.apiSecret,
     });
 
-    console.log({
-      apiKey: binanceConfig.apiKey,
-      apiSecret: binanceConfig.apiSecret,
-    });
-      console.log(type.toUpperCase())
     return await binanceClient.order({
-      symbol: 'LUNCUSDT',
+      symbol: 'XRPUSDT',
       side: type.toUpperCase() as 'SELL' | 'BUY',
       type: OrderType.MARKET,
-      quantity: '2900000',
+      quantity: '1000',
     });
   }
 }
