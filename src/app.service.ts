@@ -22,7 +22,7 @@ export class AppService {
       symbol: 'XRPUSDT',
       side: type.toUpperCase() as 'SELL' | 'BUY',
       type: OrderType.MARKET,
-      quantity: '1000',
+      quantity: '900',
     });
   }
 }
